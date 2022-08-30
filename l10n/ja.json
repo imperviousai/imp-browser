@@ -1,0 +1,24 @@
+{
+  "browser/chrome/browser/taskbar.properties": {
+    "taskbar.tasks.newPrivateWindow.label": {
+      "string": "New Impervious Private window"
+    },
+    "taskbar.tasks.newPrivateWindow.description": {
+      "string": "Open a Impervious Private window."
+    }
+  },
+  "browser/profile/bookmarks.inc": {
+    "impervious_heading": {
+      "string": "Impervious",
+      "context": "Impervious links folder name"
+    },
+    "impervious_help": {
+      "string": "Help",
+      "context": "link title for https://www.impervious.ai/"
+    },
+    "impervious_about_us": {
+      "string": "About us",
+      "context": "link title for https://www.impervious.ai/"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "imp-browser",
+  "version": "0.1.0",
+  "description": "The Impervious Browser",
+  "main": "fern.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imperviousai/imp-browser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imperviousai/imp-browser/issues"
+  },
+  "homepage": "https://github.com/imperviousai/imp-browser#readme",
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "colors": "^1.4.0",
+    "commander": "^6.0.0",
+    "dockerode": "^3.2.1",
+    "eslint": "^7.6.0",
+    "execa": "^4.0.3",
+    "fs-extra": "^9.0.1",
+    "got": "^11.5.2",
+    "js-yaml": "^3.14.0",
+    "listr": "^0.14.3",
+    "recursive-readdir": "^2.2.2",
+    "rimraf": "^3.0.2",
+    "sudo-prompt": "^9.2.1"
+  }
+}

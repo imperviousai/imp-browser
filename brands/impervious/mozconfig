@@ -1,0 +1,20 @@
+
+ac_add_options --with-app-name=Impervious
+ac_add_options --with-app-basename=Impervious
+ac_add_options --enable-official-branding
+ac_add_options --with-branding=browser/branding/impervious
+ac_add_options --enable-update-channel=release
+#ac_add_options --disable-verify-mar
+ac_add_options --disable-crashreporter
+ac_add_options MOZ_TELEMETRY_REPORTING=
+ac_add_options --enable-bootstrap
+
+export MOZ_APP_PROFILE="Impervious Browser"
+export ACCEPTED_MAR_CHANNEL_IDS=firefox-impervious-release
+export MAR_CHANNEL_ID=firefox-impervious-release
+
+# l10n base directory
+ac_add_options --with-l10n-base=$GITHUB_WORKSPACE/l10n
+
+# Automatically download and use compiled C++ components:
+#ac_add_options --enable-artifact-builds # need to revisit and get working, for now it breaks locally

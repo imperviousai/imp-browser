@@ -1,0 +1,44 @@
+name: Build Firefox (Linux)
+on:
+  push:
+    branches:
+      - github-actions
+
+jobs:
+  build_linux:
+    name: Linux - Build Firefox
+    runs-on: ubuntu-latest
+    steps:
+      - name: "apt-get update"
+        run: sudo apt-get update
+      - name: "apt-get install -y apt-transport-https"
+        run: sudo apt-get install -y apt-transport-https
+      - name: Check Out Code
+        uses: actions/checkout@v2
+      - name: Set up Node Environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - run: npm ci
+      - name: "Pulling correct Firefox and extension sources"
+        run: ./fern.js use
+      - name: "Applying patches to Firefox"
+        run: ./fern.js import-patches
+      - name: "Bootstraping Firefox build environment"
+        working-directory: ./mozilla-release
+        run: printf "1\nY\n" | ./mach bootstrap
+      - name: "Building Firefox from source (./mach build)"
+        working-directory: ./mozilla-release
+        run: MOZCONFIG=$GITHUB_WORKSPACE/brands/impervious/mozconfig ./mach build
+      - name: "Packaging the Firefox build for distribution"
+        working-directory: mozilla-release
+        run: ./mach package
+      - name: "Looking for the build artifact"
+        working-directory: ./mozilla-release
+        run: ls -laRt
+      - name: "Upload artifacts to Job"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Impervious Linux x86_64
+          #working-directory: mozilla-release
+          path: /home/runner/work/**/Impervious*linux-x86_64.tar.bz2

@@ -1,0 +1,12 @@
+.cache
+mozilla-release
+node_modules
+logs
+.DS_Store
+build/configs/mozconfig
+/mozconfig
+/local.mozconfig
+sb-gapi.data
+gls-gapi.data
+l10n-patches/
+dist/
