@@ -1,6 +1,6 @@
 {
   "addons": {
-    "impervious": "https://github.com/imperviousai/beta-extension-release/releases/download/1.0.18/impervious-plugin-1.0.18.xpi"
+    "impervious": "https://github.com/imperviousai/imp-extension/releases/download/0.1.1-alpha/impervious-plugin-0.1.1.xpi"
   },
   "firefoxAddons": [
     "screenshots",
