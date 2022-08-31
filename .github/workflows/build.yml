@@ -2,8 +2,7 @@ name: Build Firefox (Cross Platform)
 on:
   push:
     branches:
-      - github-actions
-      - main
+      - master
 jobs:
   build_mac_intel:
     name: MacOSX (Intel) - Build Firefox
