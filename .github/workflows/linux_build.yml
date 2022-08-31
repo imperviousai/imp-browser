@@ -2,7 +2,7 @@ name: Build Firefox (Linux)
 on:
   push:
     branches:
-      - github-actions
+      - master
 
 jobs:
   build_linux:
@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: "apt-get update"
         run: sudo apt-get update
-      - name: "apt-get install -y apt-transport-https"
-        run: sudo apt-get install -y apt-transport-https
+      - name: "apt-get install -y apt-transport-https build-essential mercurial python3-distutils python3-apt gcc python3-dev"
+        run: sudo apt-get install -y apt-transport-https build-essential mercurial python3-distutils python3-apt gcc python3-dev
       - name: Check Out Code
         uses: actions/checkout@v2
       - name: Set up Node Environment
