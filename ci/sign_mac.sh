@@ -3,7 +3,7 @@
 set -e
 set -x
 
-INPUT=$GITHUB_WORKSPACE/mozilla-release/obj-*-apple-darwin/dist/Impervious-*.en-US.mac.dmg
+INPUT=$GITHUB_WORKSPACE/mozilla-release/obj-aarch64-apple-darwin21.4.0/dist/Impervious-*.en-US.mac.dmg
 OUTPUT=$GITHUB_WORKSPACE/dist
 APP_NAME=Impervious
 PKG_NAME=Impervious
@@ -18,9 +18,9 @@ ZIP_PATH=$OUTPUT/$APP_NAME/$PKG_NAME.zip
 echo "Processing $OUTPUT..."
 
 rm -f -rf $OUTPUT
-sudo mkdir -p $OUTPUT/$APP_NAME
+mkdir -p $OUTPUT/$APP_NAME
 
-mozilla-release/build/package/mac_osx/unpack-diskimage $INPUT /Volumes/$APP_NAME $OUTPUT/$APP_NAME
+sudo mozilla-release/build/package/mac_osx/unpack-diskimage $INPUT /Volumes/$APP_NAME $OUTPUT/$APP_NAME
 
 ls -la $OUTPUT
 
