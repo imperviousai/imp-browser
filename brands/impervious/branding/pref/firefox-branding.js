@@ -52,7 +52,9 @@ pref("browser.privatebrowsing.promoEnabled", false);
 /** HOMEPAGE ***/
 // pref("startup.homepage_override_url", "https://www.startpage.com/");
 // pref("startup.homepage_welcome_url", "https://www.startpage.com/");
-pref("startup.homepage_welcome_url.additional", "");
+pref("browser.startup.homepage", "http://127.0.0.1:8080/");
+pref("startup.homepage_welcome_url", "http://127.0.0.1:8080/");
+// pref("startup.homepage_welcome_url.additional", "");
 // pref("browser.aboutwelcome.enabled", false);
 
 /****************************************************************************
@@ -279,7 +281,7 @@ pref("full-screen-api.warning.delay", -1);
 pref("full-screen-api.warning.timeout", -1);
 
 /** NEW TAB PAGE ***/
-pref("browser.startup.page", 3);
+pref("browser.startup.page", 1);
 pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 pref("browser.newtabpage.activity-stream.showSponsored", false);
 pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
