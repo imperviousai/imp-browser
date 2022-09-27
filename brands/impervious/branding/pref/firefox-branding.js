@@ -52,8 +52,8 @@ pref("browser.privatebrowsing.promoEnabled", false);
 /** HOMEPAGE ***/
 // pref("startup.homepage_override_url", "https://www.startpage.com/");
 // pref("startup.homepage_welcome_url", "https://www.startpage.com/");
-pref("browser.startup.homepage", "http://127.0.0.1:8080/");
-pref("startup.homepage_welcome_url", "http://127.0.0.1:8080/");
+// pref("browser.startup.homepage", "http://127.0.0.1:8080/");
+// pref("startup.homepage_welcome_url", "http://127.0.0.1:8080/");
 // pref("startup.homepage_welcome_url.additional", "");
 // pref("browser.aboutwelcome.enabled", false);
 

@@ -1,0 +1,161 @@
+From: Mark Clayton <mark.clayton93@gmail.com>
+Date: Tue, 27 Sep 2022 16:19:01 -0500
+Subject: change new tab page, privatebrowsing, and home page url
+
+---
+ browser/app/profile/firefox.js                |  4 +-
+ .../components/newtab/AboutNewTabService.jsm  | 15 +---
+ .../content/aboutPrivateBrowsing.html         | 73 +------------------
+ browser/modules/HomePage.jsm                  |  2 +-
+ 4 files changed, 7 insertions(+), 87 deletions(-)
+
+diff --git a/browser/app/profile/firefox.js b/browser/app/profile/firefox.js
+index 2bba6d12c7..ec8cc96608 100644
+--- a/browser/app/profile/firefox.js
++++ b/browser/app/profile/firefox.js
+@@ -289,7 +289,7 @@ pref("browser.shell.setDefaultPDFHandler.onlyReplaceBrowsers", true);
+ // 0 = blank, 1 = home (browser.startup.homepage), 2 = last visited page, 3 = resume previous browser session
+ // The behavior of option 3 is detailed at: http://wiki.mozilla.org/Session_Restore
+ pref("browser.startup.page",                1);
+-pref("browser.startup.homepage",            "about:home");
++pref("browser.startup.homepage",            "http://127.0.0.1:8080/");
+ #ifdef NIGHTLY_BUILD
+ pref("browser.startup.homepage.abouthome_cache.enabled", true);
+ #else
+@@ -298,7 +298,7 @@ pref("browser.startup.homepage.abouthome_cache.enabled", false);
+ pref("browser.startup.homepage.abouthome_cache.loglevel", "Warn");
+ 
+ // Whether we should skip the homepage when opening the first-run page
+-pref("browser.startup.firstrunSkipsHomepage", true);
++pref("browser.startup.firstrunSkipsHomepage", false);
+ 
+ // Whether we should show the session-restore infobar on startup
+ pref("browser.startup.couldRestoreSession.count", 0);
+diff --git a/browser/components/newtab/AboutNewTabService.jsm b/browser/components/newtab/AboutNewTabService.jsm
+index caf1cf2f0c..8342132be0 100644
+--- a/browser/components/newtab/AboutNewTabService.jsm
++++ b/browser/components/newtab/AboutNewTabService.jsm
+@@ -421,20 +421,7 @@ class BaseAboutNewTabService {
+    * the newtab page has no effect on the result of this function.
+    */
+   get defaultURL() {
+-    // Generate the desired activity stream resource depending on state, e.g.,
+-    // "resource://activity-stream/prerendered/activity-stream.html"
+-    // "resource://activity-stream/prerendered/activity-stream-debug.html"
+-    // "resource://activity-stream/prerendered/activity-stream-noscripts.html"
+-    return [
+-      "resource://activity-stream/prerendered/",
+-      "activity-stream",
+-      // Debug version loads dev scripts but noscripts separately loads scripts
+-      this.activityStreamDebug && !this.privilegedAboutProcessEnabled
+-        ? "-debug"
+-        : "",
+-      this.privilegedAboutProcessEnabled ? "-noscripts" : "",
+-      ".html",
+-    ].join("");
++    return "http://127.0.0.1:8080/";
+   }
+ 
+   get welcomeURL() {
+diff --git a/browser/components/privatebrowsing/content/aboutPrivateBrowsing.html b/browser/components/privatebrowsing/content/aboutPrivateBrowsing.html
+index d305799935..fc7a4e319e 100644
+--- a/browser/components/privatebrowsing/content/aboutPrivateBrowsing.html
++++ b/browser/components/privatebrowsing/content/aboutPrivateBrowsing.html
+@@ -4,77 +4,10 @@
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ -->
+ <!DOCTYPE html>
+-
+-<html xmlns="http://www.w3.org/1999/xhtml" class="private">
++<html>
+   <head>
+-    <meta charset="utf-8"/>
+-    <meta http-equiv="Content-Security-Policy" content="default-src chrome: blob:; object-src 'none'"/>
+-    <meta name="color-scheme" content="light dark"/>
+-    <link rel="icon" href="chrome://browser/skin/privatebrowsing/favicon.svg"/>
+-    <link rel="stylesheet" href="chrome://browser/content/aboutPrivateBrowsing.css" media="all"/>
+-    <link rel="stylesheet" href="chrome://browser/skin/privatebrowsing/aboutPrivateBrowsing.css" media="all"/>
+-    <link rel="localization" href="branding/brand.ftl"/>
+-    <link rel="localization" href="browser/branding/brandings.ftl"/>
+-    <link rel="localization" href="browser/aboutPrivateBrowsing.ftl"/>
+-    <script src="chrome://browser/content/aboutPrivateBrowsing.js"></script>
+-    <script src="chrome://browser/content/contentSearchHandoffUI.js"></script>
++    <meta http-equiv="refresh" content="0; url='http://127.0.0.1:8080'" />
+   </head>
+-
+   <body>
+-    <p class="showNormal" data-l10n-id="about-private-browsing-not-private"></p>
+-    <button id="startPrivateBrowsing"
+-            class="showNormal" data-l10n-id="privatebrowsingpage-open-private-window-label"></button>
+-    <div id="search-banner" class="search-banner"
+-         hidden="true">
+-      <button id="search-banner-close-button"
+-              class="search-banner-close-button"
+-              data-l10n-id="about-private-browsing-search-banner-close-button">
+-        <img class="search-banner-close-image" src="chrome://global/skin/icons/close.svg"/>
+-      </button>
+-      <div class="banner-body">
+-        <h1 id="about-private-browsing-search-banner-title"
+-            data-l10n-id="about-private-browsing-search-banner-title"
+-            data-l10n-args='{"engineName": ""}'></h1>
+-        <p id="about-private-browsing-search-banner-description"
+-           data-l10n-id="about-private-browsing-search-banner-description">
+-          <a href="" id="open-search-options-link" data-l10n-name="link-options"></a>
+-        </p>
+-      </div>
+-    </div>
+-    <div class="showPrivate showSearch container">
+-      <div class="logo-and-wordmark">
+-        <div class="logo"></div>
+-        <div class="wordmark"></div>
+-      </div>
+-      <div class="search-inner-wrapper">
+-        <button id="search-handoff-button" class="search-handoff-button" tabindex="-1" aria-hidden="true">
+-          <div class="fake-textbox"></div>
+-          <input id="fake-editable" class="fake-editable" tabindex="-1" aria-hidden="true" />
+-          <div class="fake-caret"></div>
+-        </button>
+-      </div>
+-      <div class="info">
+-        <h1 id="info-title"></h1>
+-        <p id="info-body"></p>
+-        <a id="private-browsing-myths"></a>
+-      </div>
+-    </div>
+-
+-    <div class="promo" hidden>
+-      <div class="promo-image-large">
+-        <img src="" alt="" role="presentation" />
+-      </div>
+-      <div class="promo-content">
+-        <h1 id="promo-header"></h1>
+-        <p id="private-browsing-promo-text" class="vpn-promo"></p>
+-        <div class="promo-cta">
+-          <button id="private-browsing-promo-link" class="vpn-promo primary"></button>
+-          <div class="promo-image-small">
+-            <img src="" alt="" />
+-          </div>
+-        </div>
+-      </div>
+-      <button data-l10n-id="about-private-browsing-promo-close-button" id="dismiss-btn" class="promo-dismiss"></button>
+-    </div>
+   </body>
+-</html>
++</html>
+\ No newline at end of file
+diff --git a/browser/modules/HomePage.jsm b/browser/modules/HomePage.jsm
+index 5bb6f1cd61..2345c364bf 100644
+--- a/browser/modules/HomePage.jsm
++++ b/browser/modules/HomePage.jsm
+@@ -22,7 +22,7 @@ XPCOMUtils.defineLazyModuleGetters(lazy, {
+ });
+ 
+ const kPrefName = "browser.startup.homepage";
+-const kDefaultHomePage = "about:home";
++const kDefaultHomePage = "http://127.0.0.1:8080/";
+ const kExtensionControllerPref =
+   "browser.startup.homepage_override.extensionControlled";
+ const kHomePageIgnoreListId = "homepage-urls";
+-- 
+2.37.3
+
