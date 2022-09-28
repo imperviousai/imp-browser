@@ -14,8 +14,7 @@ export ACCEPTED_MAR_CHANNEL_IDS=firefox-impervious-release
 export MAR_CHANNEL_ID=firefox-impervious-release
 
 # l10n base directory
-# ac_add_options --with-l10n-base=$GITHUB_WORKSPACE/l10n
-ac_add_options --with-l10n-base=/users/airmonster/projects/imp-browser/l10n
+ac_add_options --with-l10n-base=$GITHUB_WORKSPACE/l10n
 
 # Automatically download and use compiled C++ components:
 #ac_add_options --enable-artifact-builds # need to revisit and get working, for now it breaks locally
