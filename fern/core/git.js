@@ -257,13 +257,13 @@ async function importPatches(root) {
       title: "Import patches managed by fern",
       task: async () => applyManagedPatches(ws),
     },
-    // {
-    //   title: "Import patches managed by minions",
-    //   task: () =>
-    //     withCwd("mozilla-release", () =>
-    //       importFromPatchFiles(path.join(root, "patches"))
-    //     ),
-    // },
+    {
+      title: "Import patches managed by minions",
+      task: () =>
+        withCwd("mozilla-release", () =>
+          importFromPatchFiles(path.join(root, "patches"))
+        ),
+    },
     {
       title: "Import translations",
       task: () => {

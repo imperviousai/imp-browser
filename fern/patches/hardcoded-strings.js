@@ -13,6 +13,10 @@ module.exports = () => ({
       files.map(async (p) => {
         const filePath = path.join(await getRoot(), "mozilla-release", ...p);
         const contents = await fsExtra.readFile(filePath, "utf-8");
+        fsExtra.writeFile(
+          filePath,
+          contents.replace(/aus5\.mozilla\.org/g, "updates.impervious.live")
+        );
         return fsExtra.writeFile(
           filePath,
           contents.replace(/Firefox/g, "Impervious")
