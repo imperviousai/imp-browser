@@ -1,0 +1,574 @@
+From: markclayton <mark.clayton@impervious.ai>
+Date: Mon, 17 Oct 2022 10:08:48 -0500
+Subject: grammatical adjustments
+
+---
+ .../branding/aurora/locales/en-US/brand.ftl   | 28 +++----------
+ browser/branding/impervious/branding.nsi      |  2 +-
+ .../impervious/locales/en-US/brand.ftl        |  6 +--
+ .../impervious/locales/en-US/brand.properties |  2 +-
+ .../branding/nightly/locales/en-US/brand.ftl  | 28 +++----------
+ .../branding/official/locales/en-US/brand.ftl | 30 +++-----------
+ .../unofficial/locales/en-US/brand.ftl        | 28 +++----------
+ .../components/preferences/moreFromMozilla.js |  4 +-
+ .../components/preferences/preferences.xhtml  |  1 -
+ .../browser/preferences/moreFromMozilla.ftl   |  4 +-
+ .../en-US/browser/preferences/preferences.ftl | 10 ++---
+ .../branding/beta/locales/en-US/brand.ftl     | 22 ++--------
+ .../branding/nightly/locales/en-US/brand.ftl  | 22 ++--------
+ .../branding/official/locales/en-US/brand.ftl | 22 ++--------
+ .../unofficial/locales/en-US/brand.ftl        | 22 ++--------
+ .../browser/en-US/branding/brand.ftl          | 28 +++----------
+ .../en-US/browser/preferences/preferences.ftl |  8 ++--
+ .../resources/browser/pl/branding/brand.ftl   | 41 +++----------------
+ .../pl/browser/preferences/preferences.ftl    |  6 +--
+ .../src/scenarios/preferences.rs              |  4 +-
+ 20 files changed, 69 insertions(+), 249 deletions(-)
+
+diff --git a/browser/branding/aurora/locales/en-US/brand.ftl b/browser/branding/aurora/locales/en-US/brand.ftl
+index a544e91866..2c36839079 100644
+--- a/browser/branding/aurora/locales/en-US/brand.ftl
++++ b/browser/branding/aurora/locales/en-US/brand.ftl
+@@ -1,26 +1,8 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-## Firefox and Mozilla Brand
+-##
+-## Firefox and Mozilla must be treated as a brand.
+-##
+-## They cannot be:
+-## - Transliterated.
+-## - Translated.
+-##
+-## Declension should be avoided where possible, leaving the original
+-## brand unaltered in prominent UI positions.
+-##
+-## For further details, consult:
+-## https://mozilla-l10n.github.io/styleguides/mozilla_general/#brands-copyright-and-trademark
+-
+--brand-shorter-name = Firefox
+--brand-short-name = Firefox Developer Edition
+--brand-full-name = Firefox Developer Edition
++-brand-shorter-name = Impervious
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
+ trademarkInfo = { " " }
+diff --git a/browser/branding/impervious/branding.nsi b/browser/branding/impervious/branding.nsi
+index d843b08a62..bd91189463 100644
+--- a/browser/branding/impervious/branding.nsi
++++ b/browser/branding/impervious/branding.nsi
+@@ -10,7 +10,7 @@
+ # instead of BrandFullName and typically should not be modified.
+ !define BrandFullNameInternal "Impervious"
+ !define BrandFullName         "Impervious"
+-!define CompanyName           "Impervious Technologies Inc"
++!define CompanyName           "Impervious Technologies Inc."
+ !define URLInfoAbout          "https://www.impervious.ai"
+ !define HelpLink              "https://www.impervious.ai/support/"
+ 
+diff --git a/browser/branding/impervious/locales/en-US/brand.ftl b/browser/branding/impervious/locales/en-US/brand.ftl
+index abc91627dd..bb452cd9cd 100644
+--- a/browser/branding/impervious/locales/en-US/brand.ftl
++++ b/browser/branding/impervious/locales/en-US/brand.ftl
+@@ -1,10 +1,6 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+ -brand-shorter-name = Impervious
+ -brand-short-name = Impervious
+ -brand-full-name = Impervious
+ -brand-product-name = Impervious
+--vendor-short-name = Impervious Technologies Inc
++-vendor-short-name = Impervious
+ trademarkInfo = Impervious and the Impervious logos are trademarks of the Impervious Technologoies Inc.
+diff --git a/browser/branding/impervious/locales/en-US/brand.properties b/browser/branding/impervious/locales/en-US/brand.properties
+index 8e196b3fc2..8103cb6c89 100644
+--- a/browser/branding/impervious/locales/en-US/brand.properties
++++ b/browser/branding/impervious/locales/en-US/brand.properties
+@@ -9,6 +9,6 @@ brandFullName=Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+ brandProductName=Impervious
+-vendorShortName=Impervious Technologies Inc
++vendorShortName=Impervious Technologies Inc.
+ 
+ syncBrandShortName=Sync
+diff --git a/browser/branding/nightly/locales/en-US/brand.ftl b/browser/branding/nightly/locales/en-US/brand.ftl
+index f633bc269f..2c36839079 100644
+--- a/browser/branding/nightly/locales/en-US/brand.ftl
++++ b/browser/branding/nightly/locales/en-US/brand.ftl
+@@ -1,26 +1,8 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-## Firefox and Mozilla Brand
+-##
+-## Firefox and Mozilla must be treated as a brand.
+-##
+-## They cannot be:
+-## - Transliterated.
+-## - Translated.
+-##
+-## Declension should be avoided where possible, leaving the original
+-## brand unaltered in prominent UI positions.
+-##
+-## For further details, consult:
+-## https://mozilla-l10n.github.io/styleguides/mozilla_general/#brands-copyright-and-trademark
+-
+--brand-shorter-name = Nightly
+--brand-short-name = Nightly
+--brand-full-name = Firefox Nightly
++-brand-shorter-name = Impervious
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
+ trademarkInfo = { " " }
+diff --git a/browser/branding/official/locales/en-US/brand.ftl b/browser/branding/official/locales/en-US/brand.ftl
+index 75ae88b26e..cd97c37b62 100644
+--- a/browser/branding/official/locales/en-US/brand.ftl
++++ b/browser/branding/official/locales/en-US/brand.ftl
+@@ -1,26 +1,8 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-## Firefox and Mozilla Brand
+-##
+-## Firefox and Mozilla must be treated as a brand.
+-##
+-## They cannot be:
+-## - Transliterated.
+-## - Translated.
+-##
+-## Declension should be avoided where possible, leaving the original
+-## brand unaltered in prominent UI positions.
+-##
+-## For further details, consult:
+-## https://mozilla-l10n.github.io/styleguides/mozilla_general/#brands-copyright-and-trademark
+-
+--brand-shorter-name = Firefox
+--brand-short-name = Firefox
+--brand-full-name = Mozilla Firefox
++-brand-shorter-name = Impervious
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
+-trademarkInfo = Firefox and the Firefox logos are trademarks of the Mozilla Foundation.
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
++trademarkInfo = Impervious and the Impervious logos are trademarks of Impervious.
+diff --git a/browser/branding/unofficial/locales/en-US/brand.ftl b/browser/branding/unofficial/locales/en-US/brand.ftl
+index 51e5bfa87a..2c36839079 100644
+--- a/browser/branding/unofficial/locales/en-US/brand.ftl
++++ b/browser/branding/unofficial/locales/en-US/brand.ftl
+@@ -1,26 +1,8 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-## Firefox and Mozilla Brand
+-##
+-## Firefox and Mozilla must be treated as a brand.
+-##
+-## They cannot be:
+-## - Transliterated.
+-## - Translated.
+-##
+-## Declension should be avoided where possible, leaving the original
+-## brand unaltered in prominent UI positions.
+-##
+-## For further details, consult:
+-## https://mozilla-l10n.github.io/styleguides/mozilla_general/#brands-copyright-and-trademark
+-
+--brand-shorter-name = Nightly
+--brand-short-name = Nightly
+--brand-full-name = Nightly
++-brand-shorter-name = Impervious
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
+ trademarkInfo = { " " }
+diff --git a/browser/components/preferences/moreFromMozilla.js b/browser/components/preferences/moreFromMozilla.js
+index b5b0463d62..86cf75202b 100644
+--- a/browser/components/preferences/moreFromMozilla.js
++++ b/browser/components/preferences/moreFromMozilla.js
+@@ -91,7 +91,7 @@ var gMoreFromMozillaPane = {
+           type: "link",
+           label_string_id: "more-from-moz-learn-more-link",
+           actionURL: AppConstants.isChinaRepack()
+-            ? "https://www.firefox.com.cn/browsers/mobile/"
++            ? "https://www.impervious.ai/"
+             : "https://www.mozilla.org/firefox/browsers/mobile/",
+         },
+         qrcode: {
+@@ -267,6 +267,6 @@ var gMoreFromMozillaPane = {
+       .getElementById("moreFromMozillaCategory-header")
+       .removeAttribute("data-hidden-from-search");
+ 
+-    this.renderProducts();
++    // this.renderProducts();
+   },
+ };
+diff --git a/browser/components/preferences/preferences.xhtml b/browser/components/preferences/preferences.xhtml
+index 6ee14eec9b..42a65e173b 100644
+--- a/browser/components/preferences/preferences.xhtml
++++ b/browser/components/preferences/preferences.xhtml
+@@ -159,7 +159,6 @@
+                       data-l10n-attrs="tooltiptext"
+                       value="paneMoreFromMozilla"
+                       align="center">
+-          <image class="category-icon"/>
+           <label class="category-name" flex="1" data-l10n-id="more-from-moz-title"></label>
+         </richlistitem>
+       </richlistbox>
+diff --git a/browser/locales/en-US/browser/preferences/moreFromMozilla.ftl b/browser/locales/en-US/browser/preferences/moreFromMozilla.ftl
+index 5f331f77aa..bbff02b61f 100644
+--- a/browser/locales/en-US/browser/preferences/moreFromMozilla.ftl
++++ b/browser/locales/en-US/browser/preferences/moreFromMozilla.ftl
+@@ -8,10 +8,10 @@ more-from-moz-title = More from { -vendor-short-name }
+ more-from-moz-category =
+   .tooltiptext =  More from { -vendor-short-name }
+ 
+-more-from-moz-subtitle = Check out other { -vendor-short-name } products that work to support a healthy internet.
++more-from-moz-subtitle = Check out more products from Impervious Technologies Inc., coming soon.
+ 
+ more-from-moz-firefox-mobile-title = { -brand-product-name } Mobile
+-more-from-moz-firefox-mobile-description = The mobile browser that puts your privacy first.
++more-from-moz-firefox-mobile-description = Coming soon.
+ 
+ more-from-moz-mozilla-vpn-title = { -mozilla-vpn-brand-name }
+ more-from-moz-mozilla-vpn-description = Discover an added layer of anonymous browsing and protection.
+diff --git a/browser/locales/en-US/browser/preferences/preferences.ftl b/browser/locales/en-US/browser/preferences/preferences.ftl
+index 382ab3b016..161d134352 100644
+--- a/browser/locales/en-US/browser/preferences/preferences.ftl
++++ b/browser/locales/en-US/browser/preferences/preferences.ftl
+@@ -636,7 +636,7 @@ home-restore-defaults =
+ # "Firefox" should be treated as a brand and kept in English,
+ # while "Home" and "(Default)" can be localized.
+ home-mode-choice-default =
+-    .label = Firefox Home (Default)
++    .label = Impervious Home (Default)
+ 
+ home-mode-choice-custom =
+     .label = Custom URLs…
+@@ -645,7 +645,7 @@ home-mode-choice-blank =
+     .label = Blank Page
+ 
+ home-homepage-custom-url =
+-    .placeholder = Paste a URL…
++    .placeholder = http://127.0.0.1:8080/
+ 
+ # This string has a special case for '1' and [other] (default). If necessary for
+ # your language, you can add {$tabCount} to your translations and use the
+@@ -663,10 +663,10 @@ choose-bookmark =
+     .label = Use Bookmark…
+     .accesskey = B
+ 
+-## Home Section - Firefox Home Content Customization
++## Home Section - Impervious Home Content Customization
+ 
+-home-prefs-content-header = Firefox Home Content
+-home-prefs-content-description = Choose what content you want on your Firefox Home screen.
++home-prefs-content-header = Impervious Content
++home-prefs-content-description = Choose what content you want on your Impervious Home screen.
+ 
+ home-prefs-search-header =
+     .label = Web Search
+diff --git a/mobile/android/branding/beta/locales/en-US/brand.ftl b/mobile/android/branding/beta/locales/en-US/brand.ftl
+index 363ea19be8..b71b561bd3 100644
+--- a/mobile/android/branding/beta/locales/en-US/brand.ftl
++++ b/mobile/android/branding/beta/locales/en-US/brand.ftl
+@@ -1,20 +1,6 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-## Firefox Brand
+-##
+-## Firefox must be treated as a brand, and kept in English.
+-## It cannot be:
+-## - Declined to adapt to grammatical case.
+-## - Transliterated.
+-## - Translated.
+-##
+-## Reference: https://www.mozilla.org/styleguide/communications/translation/
+-
+--brand-short-name = Firefox Beta
+--brand-full-name = Mozilla Firefox Beta
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
+diff --git a/mobile/android/branding/nightly/locales/en-US/brand.ftl b/mobile/android/branding/nightly/locales/en-US/brand.ftl
+index 57b76f8729..b71b561bd3 100644
+--- a/mobile/android/branding/nightly/locales/en-US/brand.ftl
++++ b/mobile/android/branding/nightly/locales/en-US/brand.ftl
+@@ -1,20 +1,6 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-## Firefox Brand
+-##
+-## Firefox must be treated as a brand, and kept in English.
+-## It cannot be:
+-## - Declined to adapt to grammatical case.
+-## - Transliterated.
+-## - Translated.
+-##
+-## Reference: https://www.mozilla.org/styleguide/communications/translation/
+-
+--brand-short-name = Nightly
+--brand-full-name = Mozilla Nightly
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
+diff --git a/mobile/android/branding/official/locales/en-US/brand.ftl b/mobile/android/branding/official/locales/en-US/brand.ftl
+index d0b052be82..b71b561bd3 100644
+--- a/mobile/android/branding/official/locales/en-US/brand.ftl
++++ b/mobile/android/branding/official/locales/en-US/brand.ftl
+@@ -1,20 +1,6 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-## Firefox Brand
+-##
+-## Firefox must be treated as a brand, and kept in English.
+-## It cannot be:
+-## - Declined to adapt to grammatical case.
+-## - Transliterated.
+-## - Translated.
+-##
+-## Reference: https://www.mozilla.org/styleguide/communications/translation/
+-
+--brand-short-name = Firefox
+--brand-full-name = Mozilla Firefox
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
+diff --git a/mobile/android/branding/unofficial/locales/en-US/brand.ftl b/mobile/android/branding/unofficial/locales/en-US/brand.ftl
+index f69d87c050..b71b561bd3 100644
+--- a/mobile/android/branding/unofficial/locales/en-US/brand.ftl
++++ b/mobile/android/branding/unofficial/locales/en-US/brand.ftl
+@@ -1,20 +1,6 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-## Firefox Brand
+-##
+-## Firefox must be treated as a brand, and kept in English.
+-## It cannot be:
+-## - Declined to adapt to grammatical case.
+-## - Transliterated.
+-## - Translated.
+-##
+-## Reference: https://www.mozilla.org/styleguide/communications/translation/
+-
+--brand-short-name = Fennec
+--brand-full-name = Mozilla Fennec
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
+diff --git a/third_party/rust/fluent-testing/resources/browser/en-US/branding/brand.ftl b/third_party/rust/fluent-testing/resources/browser/en-US/branding/brand.ftl
+index c86ae06eb6..2c36839079 100644
+--- a/third_party/rust/fluent-testing/resources/browser/en-US/branding/brand.ftl
++++ b/third_party/rust/fluent-testing/resources/browser/en-US/branding/brand.ftl
+@@ -1,26 +1,8 @@
+-# # This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-## Firefox and Mozilla Brand
+-##
+-## Firefox and Mozilla must be treated as a brand.
+-##
+-## They cannot be:
+-## - Transliterated.
+-## - Translated.
+-##
+-## Declension should be avoided where possible, leaving the original
+-## brand unaltered in prominent UI positions.
+-##
+-## For further details, consult:
+-## https://mozilla-l10n.github.io/styleguides/mozilla_general/#brands-copyright-and-trademark
+-
+--brand-shorter-name = Nightly
+--brand-short-name = Nightly
+--brand-full-name = Nightly
++-brand-shorter-name = Impervious
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
+ trademarkInfo = { " " }
+diff --git a/third_party/rust/fluent-testing/resources/browser/en-US/browser/preferences/preferences.ftl b/third_party/rust/fluent-testing/resources/browser/en-US/browser/preferences/preferences.ftl
+index d90823fa6b..2180a7fd0a 100644
+--- a/third_party/rust/fluent-testing/resources/browser/en-US/browser/preferences/preferences.ftl
++++ b/third_party/rust/fluent-testing/resources/browser/en-US/browser/preferences/preferences.ftl
+@@ -582,7 +582,7 @@ home-restore-defaults =
+ # "Firefox" should be treated as a brand and kept in English,
+ # while "Home" and "(Default)" can be localized.
+ home-mode-choice-default =
+-    .label = Firefox Home (Default)
++    .label = Impervious Home
+ 
+ home-mode-choice-custom =
+     .label = Custom URLs…
+@@ -591,7 +591,7 @@ home-mode-choice-blank =
+     .label = Blank Page
+ 
+ home-homepage-custom-url =
+-    .placeholder = Paste a URL…
++    .placeholder = http://127.0.0.1:8080/
+ 
+ # This string has a special case for '1' and [other] (default). If necessary for
+ # your language, you can add {$tabCount} to your translations and use the
+@@ -611,8 +611,8 @@ choose-bookmark =
+ 
+ ## Home Section - Firefox Home Content Customization
+ 
+-home-prefs-content-header = Firefox Home Content
+-home-prefs-content-description = Choose what content you want on your Firefox Home screen.
++home-prefs-content-header = Impervious Home Content
++home-prefs-content-description = Choose what content you want on your Impervious Home screen.
+ 
+ home-prefs-search-header =
+     .label = Web Search
+diff --git a/third_party/rust/fluent-testing/resources/browser/pl/branding/brand.ftl b/third_party/rust/fluent-testing/resources/browser/pl/branding/brand.ftl
+index 7f3ed74d06..c8ee7fd1da 100644
+--- a/third_party/rust/fluent-testing/resources/browser/pl/branding/brand.ftl
++++ b/third_party/rust/fluent-testing/resources/browser/pl/branding/brand.ftl
+@@ -1,37 +1,8 @@
+-# This Source Code Form is subject to the terms of the Mozilla Public
+-# License, v. 2.0. If a copy of the MPL was not distributed with this
+-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-
+-
+-## Firefox Brand
+-##
+-## Firefox must be treated as a brand, and kept in English.
+-## It cannot be:
+-## - Declined to adapt to grammatical case.
+-## - Transliterated.
+-## - Translated.
+-##
+-## Reference: https://www.mozilla.org/styleguide/communications/translation/
+-
+-## Firefox and Mozilla Brand
+-##
+-## Firefox and Mozilla must be treated as a brand.
+-##
+-## They cannot be:
+-## - Transliterated.
+-## - Translated.
+-##
+-## Declension should be avoided where possible, leaving the original
+-## brand unaltered in prominent UI positions.
+-##
+-## For further details, consult:
+-## https://mozilla-l10n.github.io/styleguides/mozilla_general/#brands-copyright-and-trademark
+-
+--brand-shorter-name = Firefox
+--brand-short-name = Firefox
+--brand-full-name = Mozilla Firefox
++-brand-shorter-name = Impervious
++-brand-short-name = Impervious
++-brand-full-name = Impervious
+ # This brand name can be used in messages where the product name needs to
+ # remain unchanged across different versions (Nightly, Beta, etc.).
+--brand-product-name = Firefox
+--vendor-short-name = Mozilla
+-trademarkInfo = Firefox oraz logotyp Firefox to znaki towarowe Mozilla Foundation.
++-brand-product-name = Impervious
++-vendor-short-name = Impervious
++trademarkInfo = Impervious oraz logotyp Impervious to znaki towarowe Impervious.
+diff --git a/third_party/rust/fluent-testing/resources/browser/pl/browser/preferences/preferences.ftl b/third_party/rust/fluent-testing/resources/browser/pl/browser/preferences/preferences.ftl
+index 65ccf77017..bd8afecbf1 100644
+--- a/third_party/rust/fluent-testing/resources/browser/pl/browser/preferences/preferences.ftl
++++ b/third_party/rust/fluent-testing/resources/browser/pl/browser/preferences/preferences.ftl
+@@ -476,7 +476,7 @@ home-mode-choice-custom =
+ home-mode-choice-blank =
+     .label = pusta strona
+ home-homepage-custom-url =
+-    .placeholder = Adres URL
++    .placeholder = http://127.0.0.1:8080/
+ # This string has a special case for '1' and [other] (default). If necessary for
+ # your language, you can add {$tabCount} to your translations and use the
+ # standard CLDR forms, or only use the form for [other] if both strings should
+@@ -494,8 +494,8 @@ choose-bookmark =
+ 
+ ## Home Section - Firefox Home Content Customization
+ 
+-home-prefs-content-header = Strona startowa Firefoksa
+-home-prefs-content-description = Wybierz, co wyświetlać na stronie startowej Firefoksa.
++home-prefs-content-header = Strona startowa Impervious
++home-prefs-content-description = Wybierz, co wyświetlać na stronie startowej Impervious.
+ home-prefs-search-header =
+     .label = Pasek wyszukiwania
+ home-prefs-topsites-header =
+diff --git a/third_party/rust/fluent-testing/src/scenarios/preferences.rs b/third_party/rust/fluent-testing/src/scenarios/preferences.rs
+index 887bfb7389..a642a75e84 100644
+--- a/third_party/rust/fluent-testing/src/scenarios/preferences.rs
++++ b/third_party/rust/fluent-testing/src/scenarios/preferences.rs
+@@ -547,8 +547,8 @@ pub fn get_scenario() -> Scenario {
+             ("experimental-features-web-gpu2", L10nMessage::new(None, Some(vec![L10nAttribute::new("label", "Web API: WebGPU")]))),
+             ("experimental-features-webrtc-global-mute-toggles", L10nMessage::new(None, Some(vec![L10nAttribute::new("label", "WebRTC Global Mute Toggles")]))),
+             (L10nKey::new("use-current-pages", Some(vec![L10nArgument::new("tabCount", "1")])), L10nMessage::new(None, Some(vec![L10nAttribute::new("label", "Use Current Page"), L10nAttribute::new("accesskey", "C")]))),
+-            ("home-prefs-content-header", "Firefox Home Content"),
+-            ("home-prefs-content-description", "Choose what content you want on your Firefox Home screen."),
++            ("home-prefs-content-header", "Impervious Home Content"),
++            ("home-prefs-content-description", "Choose what content you want on your Impervious Home screen."),
+             ("home-prefs-search-header", L10nMessage::new(None, Some(vec![L10nAttribute::new("label", "Web Search")]))),
+             ("home-prefs-topsites-header", L10nMessage::new(None, Some(vec![L10nAttribute::new("label", "Top Sites")]))),
+             ("home-prefs-topsites-description", "The sites you visit most"),
+-- 
+2.37.3
+
