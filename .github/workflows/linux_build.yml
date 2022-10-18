@@ -7,7 +7,8 @@ on:
 jobs:
   build_linux:
     name: Linux - Build Firefox
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: "apt-get update"
         run: sudo apt-get update
