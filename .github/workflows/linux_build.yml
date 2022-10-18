@@ -27,7 +27,7 @@ jobs:
         run: ./fern.js import-patches
       - name: "Bootstraping Firefox build environment"
         working-directory: ./mozilla-release
-        run: printf "1\nY\n" | ./mach bootstrap
+        run: ./mach bootstrap
       - name: "Building Firefox from source (./mach build)"
         working-directory: ./mozilla-release
         run: MOZCONFIG=$GITHUB_WORKSPACE/brands/impervious/mozconfig ./mach build
