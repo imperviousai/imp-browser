@@ -18,7 +18,7 @@ index 2bba6d12c7..ec8cc96608 100644
  // The behavior of option 3 is detailed at: http://wiki.mozilla.org/Session_Restore
  pref("browser.startup.page",                1);
 -pref("browser.startup.homepage",            "about:home");
-+pref("browser.startup.homepage",            "http://127.0.0.1:8080/");
++pref("browser.startup.homepage",            "http://127.0.0.1:8888/");
  #ifdef NIGHTLY_BUILD
  pref("browser.startup.homepage.abouthome_cache.enabled", true);
  #else
@@ -53,7 +53,7 @@ index caf1cf2f0c..8342132be0 100644
 -      this.privilegedAboutProcessEnabled ? "-noscripts" : "",
 -      ".html",
 -    ].join("");
-+    return "http://127.0.0.1:8080/";
++    return "http://127.0.0.1:8888/";
    }
  
    get welcomeURL() {
@@ -80,7 +80,7 @@ index d305799935..fc7a4e319e 100644
 -    <link rel="localization" href="browser/aboutPrivateBrowsing.ftl"/>
 -    <script src="chrome://browser/content/aboutPrivateBrowsing.js"></script>
 -    <script src="chrome://browser/content/contentSearchHandoffUI.js"></script>
-+    <meta http-equiv="refresh" content="0; url='http://127.0.0.1:8080'" />
++    <meta http-equiv="refresh" content="0; url='http://127.0.0.1:8888'" />
    </head>
 -
    <body>
@@ -152,7 +152,7 @@ index 5bb6f1cd61..2345c364bf 100644
  
  const kPrefName = "browser.startup.homepage";
 -const kDefaultHomePage = "about:home";
-+const kDefaultHomePage = "http://127.0.0.1:8080/";
++const kDefaultHomePage = "http://127.0.0.1:8888/";
  const kExtensionControllerPref =
    "browser.startup.homepage_override.extensionControlled";
  const kHomePageIgnoreListId = "homepage-urls";
