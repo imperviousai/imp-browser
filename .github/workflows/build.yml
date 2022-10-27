@@ -53,7 +53,7 @@ jobs:
         with:
           name: Impervious MacOSX x86_64
           #working-directory: mozilla-release
-          path: /Users/runner/work/imp-browser/**/Impervious*.dmg
+          path: /Users/runner/work/imp-browser-staging/**/Impervious*.dmg
 
           
   # build_mac_aarch64:
