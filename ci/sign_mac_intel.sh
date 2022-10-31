@@ -3,7 +3,7 @@
 set -e
 set -x
 
-INPUT=$GITHUB_WORKSPACE/mozilla-release/obj-x86_64-apple-darwin20.6.0/dist/Impervious-2022.02.en-US.mac.dmg
+INPUT=$GITHUB_WORKSPACE/mozilla-release/obj-x86_64-apple-darwin*/dist/Impervious-*.en-US.mac.dmg
 OUTPUT=$GITHUB_WORKSPACE/dist/amd64
 APP_NAME=Impervious
 PKG_NAME=Impervious
